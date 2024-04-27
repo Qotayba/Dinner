@@ -1,3 +1,4 @@
+using BuberDinner.Api;
 using BuberDinner.Api.Filters;
 using BuberDinner.Api.Middelware;
 using BuberDinner.Application;
@@ -8,11 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services
+    .AddPresentiation()
     .AddApplication()
     .AddInfraStructure(builder.Configuration);
 
 
-builder.Services.AddControllers(options=>options.Filters.Add<ErorrHandlingFilterAttribute>());
 //builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
