@@ -40,9 +40,10 @@ namespace BuberDinner.Application.Authentication.Commands.Register
             _userRepository.Add(user);
 
             var token = _jwtTokenGenerator.GenerateToken(user);
-            return new AuthenticationResult(
+            var authenticationResult= new AuthenticationResult(
                user,
                token);
+            return authenticationResult;
         }
     }
 }
